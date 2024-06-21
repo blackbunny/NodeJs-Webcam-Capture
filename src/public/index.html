@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Webcam Feed</title>
+</head>
+<body>
+<h1>Live Webcam Feed</h1>
+<img id="webcam" src="/photo.jpg" alt="Webcam feed" width="800" >
+<img id="webcam_out" src="/output.jpg" alt="Webcam feed" width="800" >
+
+<script>
+    function refreshImage() {
+        const image = document.getElementById('webcam');
+        const timestamp = new Date().getTime();
+        image.src = '/photo.jpg?t=' + timestamp;
+
+        const webcam_out = document.getElementById('webcam_out');
+        webcam_out.src = '/output.jpg?t=' + timestamp;
+    }
+
+    setInterval(refreshImage, 250);
+</script>
+</body>
+</html>
